@@ -1,0 +1,59 @@
+{
+	"id": "1" ,
+	"version": "2" ,
+	"title": "IMG Gelbooru Post" ,
+	"author": "TsukiSeele" ,
+	"type": "Image" ,
+	"rating": "Q" ,
+	"$State" : "" ,
+	"remarks": "Booru图站，ACG图，图片很多，质量很杂" ,
+	"homeSection": {
+		"indexUrl": "https://gelbooru.com/index.php?page=post&s=list&pid={page:0,42}" ,
+			"gallerySelectors": {
+				"title" : {
+					"selector": "$(div.thumbnail-preview > span.thumb > a[id]).attr(id)" ,
+					"capture": "(?<=p).*" ,
+					"replacement": "gelbooru $0"
+				} ,
+				"catalogUrl": {
+					"selector": "$(div.thumbnail-preview > span.thumb > a[href]).attr(href)" ,
+					"capture": ".*" ,
+					"replacement": "https:$0"
+				} ,
+				"originUrl": {
+					"selector": "$(div.thumbnail-preview > span.thumb > a[href]).attr(href)",
+					"capture": ".*" ,
+					"replacement": "https:$0"
+				} , 
+				"coverUrl": {
+					"selector": "$(span.thumb > a > img).attr(data-original)"
+				}
+			} ,
+			"catalogSelectors": {
+				"title" : {
+					"selector": "$(head > title).text"
+				} ,
+				"tags": {
+					"selector": "$(img#image).attr(alt)"
+				} ,
+				"originUrl": {
+					"selector": "$(#post-view).html()" ,
+					"capture": "(https?://simg3\\.gelbooru.com//images/[^\"]*?\\.(jpg|jpeg|png|gif|bmp))" ,
+					"replacement": "$1"
+				} ,
+				"largerUrl": {
+					"selector": "$(meta[property=og:image]).attr(content)"
+				} ,
+				"sampleUrl": {
+					"selector": "$(img#image).attr(src)"
+				},
+				"coverUrl": {
+					"selector": "$(meta[property=og:image]).attr(content)"
+				}
+			}
+	} , 
+	"searchSection": {
+		"indexUrl": "https://gelbooru.com/index.php?page=post&s=list&tags={keyword:}&pid={page:0,42}" ,
+		"reuse": "homeSection"
+	}
+}

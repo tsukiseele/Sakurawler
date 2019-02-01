@@ -1,0 +1,41 @@
+{
+	"id": "2" ,
+	"version": "1" ,
+	"title": "IMG Danbooru Post" ,
+	"author": "TsukiSeele" ,
+	"type": "Image" ,
+	"rating": "Q" ,
+	"remarks": "Booru图站，ACG图，图片很多，质量一般" ,
+	"homeSection": {
+		"indexUrl": "https://danbooru.donmai.us/posts?page={page:0}" ,
+			"gallerySelectors": {
+				"title" : {
+					"selector": "$(div#posts > div > article).attr(id)" ,
+					"capture": "(?<=post_).*" ,
+					"replacement": "$0"
+				} ,
+				"originUrl": {
+					"selector": "$(div#posts > div > article).attr(data-file-url)"
+				} , 
+				"sampleUrl": {
+					"selector": "$(div#posts > div > article).attr(data-large-file-url)"
+				},
+				"coverUrl": {
+					"selector": "$(div#posts > div > article).attr(data-preview-file-url)"
+				} , 
+				"tags": {
+					"selector": "$(div#posts > div > article).attr(data-tags)"
+				} ,
+				"source_url" : {
+					"selector": "$(div#posts > div > article).attr(data-source)"
+				} ,
+				"info" : {
+					"selector": "$(div#posts > div > article).attr(data-pixiv-id)"
+				}
+			}
+	} ,
+	"searchSection": {
+		"indexUrl": "https://danbooru.donmai.us/posts?page={page:}&tags={keyword:}" ,
+		"reuse": "homeSection"
+	}
+}

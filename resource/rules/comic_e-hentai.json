@@ -1,0 +1,52 @@
+{
+	"id": "9" ,
+	"version": "2" ,
+	"title": "Comic E-Hentai" ,
+	"author": "TsukiSeele" ,
+	"type": "Image" ,
+	"rating": "R" ,
+	"remarks": "二次元同人志站点" ,
+	"homeSection": {
+		"indexUrl": "https://e-hentai.org/?page={page:-1}" ,
+		"gallerySelectors": {
+			"title" : {
+				"selector": "$(div.it5 > a).text"
+			} ,
+			"catalogUrl": {
+				"selector": "$(div.it5 > a).attr(href)"
+			} ,
+			"coverUrl": {
+				"selector": "$(td.itd div div.it2).html()" ,
+				"capture": "(//|inits?~)(.*?org)[~/]([^~]*\\.jpg)[~\"]" ,
+				"replacement": "https://$2/$3"
+			}
+		} ,
+		"catalogSelectors": {
+			"title" : {
+				"selector": "$(div.gdtm div a img).attr(alt)"
+			} ,
+			"tags": {
+				"selector": "$(meta[name=description]).attr(content)" ,
+				"capture": "Tags:(.*)" ,
+				"replacement": "$1"
+			} ,
+			"coverUrl": {
+				"selector": "$(body).html" ,
+				"capture": "(https?://.*?\\.jpg)" ,
+				"replacement": "$1"
+			} ,
+			"extraUrl": {
+				"selector": "$(div.gdtm > div > a).attr(href)"
+			}
+		} ,
+		"extraSelectors": {
+			"sampleUrl": {
+				"selector": "$(img#img).attr(src)"
+			}
+		}
+	} ,
+	"searchSection": {
+		"indexUrl": "https://e-hentai.org/?f_search={keyword:}&page={page:-1}" ,
+		"reuse": "homeSection"
+	}
+}

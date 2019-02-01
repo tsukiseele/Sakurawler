@@ -1,0 +1,59 @@
+{
+    "title": "Comic ExHentai",
+    "id": 1,
+    "version": 1,
+    "author": "TsukiSeele",
+    "rating": "S",
+    "remarks": "Booru",
+    "flag": "",
+    "requestHeaders": {
+        "Cookie": "igneous=aa2976800; ipb_member_id=4284686; ipb_pass_hash=0e39979493de251eb3d32c7926a21957;"
+    } ,
+    "homeSection": {
+        "indexUrl": "https://exhentai.org/?page={page:-1}",
+        "gallerySelectors": {
+            "title" : {
+				"selector" : "$(div.it5 > a).text"
+			} ,
+            "coverUrl": {
+				"selector": "$(td.itd div div.it2).html()" ,
+				"capture": "(//|inits?~)(.*?org)[~/]([^~]*\\.jpg)[~\"]" ,
+				"replacement": "http://$2/$3"
+			} ,
+            "catalogUrl": {
+                "selector" : "$(div.it5 > a).attr(href)" ,
+				"capture": ".*" ,
+				"replacement": "$0?inline_set=ts_l&p={page:0}"
+            }
+        },
+        "catalogSelectors": {
+            "title": {
+                "selector": "$(div.gdtl a img).attr(alt)",
+                "capture": "(.*)",
+                "replacement": "$1"
+            },
+            "tags": {
+                "selector": "$(meta[name=description]).attr(content)"
+            },
+			"coverUrl": {
+				"selector": "$(.gdtl > a > img).attr(src)"
+			} ,
+            "sampleUrl": {
+                "selector": "$(img#image).attr(src)"
+            },
+			"extraUrl": {
+				"selector": "$(.gdtl > a).attr(href)"
+			}
+        },
+		"extraSelectors": {
+			"sampleUrl": {
+				"selector": "$(#img).attr(src)"
+			}
+		}
+    },
+    "searchSection": {
+        "indexUrl": "https://exhentai.org/?page={page:-1}&f_doujinshi=on&f_manga=on&f_artistcg=on&f_gamecg=on&f_non-h=on&f_imageset=on&f_misc=on&f_search={keyword:}&f_apply=Apply+Filter",
+        "reuse": "homeSection"
+    },
+    "extraSections": {}
+}

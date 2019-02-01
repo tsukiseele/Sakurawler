@@ -1,0 +1,56 @@
+{
+	"id": "30" ,
+	"version": "2" ,
+	"title": "IMG Idol-SankakuComplex Post" ,
+	"author": "TsukiSeele" ,
+	"type": "Image" ,
+	"rating": "R" ,
+	"remarks": "Cosplay图站" ,
+	"homeSection": {
+		"indexUrl": "https://idol.sankakucomplex.com/?page={page:0}" ,
+
+			"gallerySelectors": {
+				"title" : {
+					"selector": "$(span.thumb.blacklisted).attr(id)" ,
+					"capture": "(?<=p).*" ,
+					"replacement": "$0"
+				} ,
+				"catalogUrl": {
+					"selector": "$(span.thumb.blacklisted > a).attr(href)" ,
+					"capture": ".*" ,
+					"replacement": "https://idol.sankakucomplex.com$0"
+				} ,
+				"coverUrl": {
+					"selector": "$(span.thumb.blacklisted > a > img.preview).attr(src)",
+					"capture": ".*" ,
+					"replacement": "https:$0"
+				}
+			} ,
+			"catalogSelectors": {
+				"title" : {
+					"selector": "$(img#image).attr(alt)" ,
+					"capture": ".*" ,
+					"replacement": "https:$0"
+				} , 
+				"tags": {
+					"selector": "$(img#image).attr(alt)" ,
+					"capture": ".*" ,
+					"replacement": "https:$0"
+				} ,
+				"sampleUrl": {
+					"selector": "$(img#image).attr(src)" ,
+					"capture": ".*" ,
+					"replacement": "https:$0"
+				} ,
+				"coverUrl": {
+					"selector": "$(img#image).attr(src)" ,
+					"capture": ".*" ,
+					"replacement": "https:$0"
+				}
+		}
+	} ,
+	"searchSection": {
+		"indexUrl": "https://idol.sankakucomplex.com/?tags={keyword:}&commit=Search&page={page:0}" ,
+		"reuse": "homeSection"
+	}
+}

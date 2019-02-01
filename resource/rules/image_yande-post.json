@@ -1,0 +1,59 @@
+{
+    "title": "Image YandePost",
+    "id": 1,
+    "version": 1,
+    "author": "TsukiSeele",
+    "rating": "S",
+    "remarks": "Booru",
+    "flag": "",
+    "requestHeaders": {
+        "Cookie": "country=CN; __utmt=1; login=TsukiSeele; pass_hash=e880bfe2937b02bcda161d6de069f0503e278d58; forum_post_last_read_at=%222017-04-30T14%3A48%3A22.200Z%22; user_id=303588; user_info=303588%3B30%3B0; has_mail=0; comments_updated=1; block_reason=; resize_image=0; show_advanced_editing=0; my_tags=; held_post_count=0; notice=You+are+now+logged+in; yande.re=akxKcWtxcTZKbVY0bkNXMllmUHZJZEFpaHNpRTVBblQxV0VyREVpYXVTWjlaeWk4VE5Ib3dDZFc3Y2ZtV3NPS25EUU1SSnpiRGg5ejl0YmZHRitGdWdSUHhBYW9oWU1wYlFXRWZ0UEUzUnFMdjVobUNjM2FsR1BEb3VvdS9jcmh3VUIycVRKY2UwK01VK2V2MktDOGd0UDdnQkFieGFhcnVPZ1B1NXovRy9rPS0tcGM3KytWaFpvV0R6MFZLblFhVW43Zz09--a87d83db31a58abf28fff4eadde74469ea2be2ce; __utma=5621947.829430418.1525505697.1525505697.1525505697.1; __utmb=5621947.2.10.1525505697; __utmc=5621947; __utmz=5621947.1525505697.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none)"
+    },
+    "homeSection": {
+        "indexUrl": "https://yande.re/post?page={page:0}",
+        "gallerySelectors": {
+            "title": {
+                "selector": "$(ul#post-list-posts > li).attr(id)",
+                "capture": "(?<=p)(.*)",
+                "replacement": "yande.re $1"
+            },
+            "coverUrl": {
+                "selector": "$(div > a.thumb > img).attr(src)"
+            },
+            "catalogUrl": {
+                "selector": "$(div.inner > a).attr(href)",
+                "capture": "(.*)",
+                "replacement": "https://yande.re/$1"
+            }
+        },
+        "catalogSelectors": {
+            "title": {
+                "selector": "$(input[name=comment[post_id]]).attr(value)",
+                "capture": "(.*)",
+                "replacement": "yande.re $1"
+            },
+            "tags": {
+                "selector": "$(img#image).attr(alt)"
+            },
+            "sampleUrl": {
+                "selector": "$(img#image).attr(src)"
+            },
+            "largerUrl": {
+                "selector": "$(li > a#highres).attr(href)"
+            },
+            "originUrl": {
+                "selector": "$(li > a#png).attr(href)"
+            },
+            "datetime": {
+                "selector": "$(script#forum-posts-latest).html",
+                "capture": "(\\d{4}-\\d{2}-\\d{2})T(\\d{2}:\\d{2}:\\d{2})",
+                "replacement": "$1 $2"
+            }
+        }
+    },
+    "searchSection": {
+        "indexUrl": "https://yande.re/post?page={page:0}&tags={keyword:}",
+        "reuse": "homeSection"
+    },
+    "extraSections": {}
+}

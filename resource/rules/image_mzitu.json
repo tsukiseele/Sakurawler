@@ -1,0 +1,40 @@
+{
+	"id": "15" ,
+	"version": "1" ,
+	"title": "IMG Mzitu" ,
+	"author": "TsukiSeele" ,
+	"type": "Image" ,
+	"rating": "Q" ,
+	"remarks": "真人写真站点" ,
+	"flag": "" ,
+	"requestHeaders": {
+		"Referer": "http://m.mzitu.com/"
+	},
+	"homeSection": {
+		"indexUrl": "http://www.mzitu.com/page/{page:0}/" ,
+		"gallerySelectors": {
+			"title" : {
+				"selector": "$(img.lazy).attr(alt)"
+			} ,
+			"coverUrl": {
+				"selector": "$(img.lazy).attr(data-original)"
+			} ,
+			"catalogUrl": {
+				"selector": "$(#pins > li > a).attr(href)",
+				"capture": ".*" ,
+				"replacement": "$0/{page:1}"
+			}
+		},
+		"catalogSelectors": {
+			"title" : {
+				"selector": "$(.main-title).text"
+			} ,
+			"coverUrl": {
+				"selector": "$(.main-image > p > a > img).attr(src)"
+			} ,
+			"originUrl": {
+				"selector": "$(.main-image > p > a > img).attr(src)"
+			}
+		}
+	}
+}

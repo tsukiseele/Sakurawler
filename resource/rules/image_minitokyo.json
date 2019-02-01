@@ -1,0 +1,73 @@
+{
+	"id": "21" ,
+	"version": "2" ,
+	"title": "IMG Minitokyo" ,
+	"author": "TsukiSeele" ,
+	"type": "Image" ,
+	"rating": "S" ,
+	"remarks": "ACG壁纸站点" ,
+	"homeSection": {
+		"indexUrl": "http://gallery.minitokyo.net/wallpapers?order=id&page={page:0}" ,
+		"gallerySelectors": {
+			"title" : {
+				"selector": "$(ul.wallpapers > li > a > img).attr(alt)"
+			} ,
+			"catalogUrl": {
+				"selector": "$(ul.wallpapers > li > a).attr(href)"
+			} ,
+			"coverUrl": {
+				"selector": "$(ul.wallpapers > li > a > img).attr(src)"
+			}
+		} ,
+		"catalogSelectors": {
+			"title" : {
+				"selector": "$(div#preview > p).text"
+			} ,
+			"tags": {
+				"selector": "$(div#preview > a > img).attr(alt)"
+			} ,
+			"originUrl": {
+				"selector": "$(div#preview > a).attr(href)"
+			} ,
+			"sampleUrl": {
+				"selector": "$(div#preview > a > img).attr(src)"
+			},
+			"coverUrl": {
+				"selector": "$(div#preview > a > img).attr(src)"
+			}
+
+		}
+	} ,
+	"searchSection": {
+		"indexUrl": "http://www.minitokyo.net/{keyword:}" ,
+
+		"gallerySelectors": {
+			"title" : {
+				"selector": "$(ul.scans > li > a > img).attr(alt)"
+			} ,
+			"catalogUrl": {
+				"selector": "$(ul.scans > li > a).attr(href)"
+			} ,
+			"coverUrl": {
+				"selector": "$(ul.scans > li > a > img).attr(src)"
+			}
+		} ,
+		"catalogSelectors": {
+			"title" : {
+				"selector": "$(div#preview > p).text"
+			} ,
+			"tags": {
+				"selector": "$(div#preview > a > img).attr(alt)"
+			} ,
+			"originUrl": {
+				"selector": "$(div#preview > a).attr(href)"
+			} ,
+			"sampleUrl": {
+				"selector": "$(div#preview > a > img).attr(src)"
+			},
+			"coverUrl": {
+				"selector": "$(div#preview > a > img).attr(src)"
+			}
+		}
+	}
+}

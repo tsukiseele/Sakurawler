@@ -1,0 +1,46 @@
+{
+	"id": "11" ,
+	"version": "1" ,
+	"title": "IMG 3dbooru Post" ,
+	"author": "TsukiSeele" ,
+	"type": "Image" ,
+	"rating": "R" ,
+	"remarks": "Booru图站之一，三次元写真，图片很少" ,
+	"homeSection": {
+		"indexUrl": "http://3d.booru.org/index.php?page=post&s=list&pid={page:0,20}" ,
+
+		"gallerySelectors": {
+			"title" : {
+				"selector": "$(span.thumb > a).attr(id)" ,
+				"capture": "(?<=p).*" ,
+				"replacement": "$0"
+			} ,
+			"catalogUrl": {
+				"selector": "$(span.thumb > a).attr(href)" ,
+				"capture": ".*" ,
+				"replacement": "http://3d.booru.org/$0"
+			} ,
+			"originUrl": {
+				"selector": ""
+			} ,
+			"coverUrl": {
+				"selector": "$(span.thumb > a > img).attr(src)"
+			}
+		} ,
+		"catalogSelectors": {
+			"title" : {
+				"selector": "$(head > title).text"
+			} ,
+			"originUrl": {
+				"selector": "$(img#image).attr(src)"
+			} ,
+			"coverUrl": {
+				"selector": "$(img#image).attr(src)"
+			}
+		}
+	} ,
+	"searchSection": {
+		"indexUrl": "http://3d.booru.org/index.php?tags={keyword:}&page=post&s=list&pid={page:0,20}" ,
+		"reuse": "homeSection"
+	}
+}

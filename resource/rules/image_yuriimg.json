@@ -1,0 +1,54 @@
+{
+	"id": "22" ,
+	"version": "1" ,
+	"title": "IMG Yuriimg" ,
+	"author": "TsukiSeele" ,
+	"type": "Image" ,
+	"rating": "S" ,
+	"remarks": "ACG图站，百合图片" ,
+	"homeSection": {
+		"indexUrl": "http://yuriimg.com/post/{page:0}" ,
+		"gallerySelectors": {
+			"title" : {
+				"selector": "$(a.link).text"
+			} ,
+			"tags": {
+				"selector": "$(a.link).text" ,
+				"capture": "(?<=画师：).*" ,
+				"replacement": "$0"
+			} ,
+			"originUrl": {
+				"selector": "$(div.image > img).attr(data-viewersss)",
+				"capture": ".*" ,
+				"replacement": "http://yuriimg.com$0"
+			} ,
+			"sampleUrl": {
+				"selector": "$(div.image > img).attr(data-original)"
+			} ,
+			"coverUrl": {
+				"selector": "$(div.image > img).attr(data-original)"
+			}
+		} ,
+		"catalogSelectors": {
+			"title" : {
+				"selector": "$(head > title).text"
+			} ,
+			"tags": {
+				"selector": "$(img#image).attr(alt)"
+			} ,
+			"largerUrl": {
+				"selector": "$(meta[property=og:image]).attr(content)"
+			} ,
+			"sampleUrl": {
+				"selector": "$(img#image).attr(src)"
+			},
+			"coverUrl": {
+				"selector": "$(meta[property=og:image]).attr(content)"
+			}
+		}
+	} ,
+	"searchSection": {
+		"indexUrl": "http://yuriimg.com/search/index/tags/{keyword:}/p/{page:0}.html" ,
+		"reuse": "homeSection"
+	}
+}

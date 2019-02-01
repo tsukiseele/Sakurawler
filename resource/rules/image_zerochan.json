@@ -1,0 +1,52 @@
+{
+	"id": "20" ,
+	"version": "1" ,
+	"title": "IMG ZeroChan" ,
+	"author": "TsukiSeele" ,
+	"type": "Image" ,
+	"rating": "S" ,
+	"remarks": "ACG图站，零域动漫壁纸" ,
+	"homeSection": {
+		"indexUrl": "https://www.zerochan.net/?p={page:0}" ,
+		"gallerySelectors": {
+			"title" : {
+				"selector": "$(ul#thumbs2 > li > a[tabindex] > img).attr(alt)"
+			} ,
+			"coverUrl": {
+				"selector": "$(ul#thumbs2 > li > a[tabindex] > img).attr(src)"
+			} ,
+			"catalogUrl": {
+				"selector": "$(ul#thumbs2 > li > a[tabindex]).attr(href)" ,
+				"capture": "(.*)" ,
+				"replacement": "https://www.zerochan.net$1"
+			}
+		},
+		"catalogSelectors": {
+			"title" : {
+				"selector": "$(div#large > p:eq(1)).text"
+			} ,
+			"tags": {
+				"selector": "$(a.preview > img).attr(alt)"
+			} ,
+			"coverUrl": {
+				"selector": "$(a.preview > img).attr(src)"
+			} ,
+			"sampleUrl": {
+				"selector": ""
+			} ,
+			"largerUrl": {
+				"selector": ""
+			} ,
+			"originUrl": {
+				"selector": "$(a.preview).attr(href)"
+			} ,
+			"datetime" : {
+				"selector": ""
+			}
+		}
+	} ,
+	"searchSection": {
+		"indexUrl": "https://www.zerochan.net/{keyword:}?p={page:0}" ,
+		"reuse": "homeSection"
+	}
+}

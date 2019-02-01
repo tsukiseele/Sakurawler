@@ -1,0 +1,32 @@
+{
+	"id": "14" ,
+	"version": "1" ,
+	"title": "IMG Lolibooru Post" ,
+	"author": "TsukiSeele" ,
+	"type": "Image" ,
+	"rating": "R" ,
+	"remarks": "Booru图站，ACG图，只收萝莉，不管是万年萝莉还是合法萝莉" ,
+	"homeSection": {
+		"indexUrl": "https://lolibooru.moe/post?page={page:0}" ,
+
+		"gallerySelectors": {
+			"title" : {
+				"selector": "$(ul#post-list-posts > li).attr(id)" ,
+				"capture": "(?<=p).*" ,
+				"replacement": "lolibooru $0"
+			} ,
+			"originUrl": {
+				"selector": "$(ul#post-list-posts > li > a[href]).attr(href)"
+			} ,
+			"coverUrl": {
+				"selector": "$(div > a.thumb > img).attr(src)"
+			}
+		}
+
+	} ,
+	"searchSection": {
+		"indexUrl": "https://lolibooru.moe/post?tags={keyword:}&page={page:}" ,
+		"reuse": "homeSection"
+	}
+}
+

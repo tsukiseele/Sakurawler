@@ -1,0 +1,50 @@
+{
+	"id": "10" ,
+	"version": "2" ,
+	"title": "Comic E-Hentai-Lofi" ,
+	"author": "TsukiSeele" ,
+	"type": "Image" ,
+	"rating": "R" ,
+	"remarks": "二次元同人志站点" ,
+	"homeSection": {
+		"indexUrl": "https://e-hentai.org/lofi/?page={page:0}" ,
+
+		"gallerySelectors": {
+			"title" : {
+				"selector": "$(table.it tr:eq(0)).text"
+			} ,
+			"catalogUrl": {
+				"selector": "$(td.ii > a).attr(href)"
+			} ,
+			"coverUrl": {
+				"selector": "$(td.ii > a > img).attr(src)"
+			}
+		} ,
+		"catalogSelectors": {
+			"title" : {
+				"selector": "$(div#gt h1).text"
+			} ,
+			"originUrl": {
+				"selector": "$(div#gh div.gi a img).attr(src)"
+			} ,
+			"coverUrl": {
+				"selector": "$(div#gh div.gi a img).attr(src)"
+			} ,
+			"tags": {
+				"selector": "$(meta[name=description]).attr(content)"
+			} ,
+			"extraUrl": {
+				"selector": "$(div#gh div.gi a).attr(href)"
+			}
+		} ,
+		"extraSelectors": {
+			"sampleUrl": {
+				"selector": "$(div#sd a img#sm).attr(src)"
+			}
+		}
+	} ,
+	"searchSection": {
+		"indexUrl": "https://e-hentai.org/lofi/?f_search={keyword:}&page={page:0}" ,
+		"reuse": "homeSection"
+	}
+}

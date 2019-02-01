@@ -1,0 +1,62 @@
+{
+	"id": "12" ,
+	"version": "1" ,
+	"title": "IMG E-ShuuShuu" ,
+	"author": "TsukiSeele" ,
+	"type": "Image" ,
+	"$Safe" : "S" ,
+	"remarks": "ACG插画站点，不支持搜索" ,
+	"homeSection": {
+		"indexUrl": "http://e-shuushuu.net/?page={page:0}" ,
+
+			"gallerySelectors": {
+				"title" : {
+					"selector": "$(div.title > h2 > a).text" ,
+					"capture": ".*" ,
+					"replacement": "$0"
+				} ,
+				"coverUrl": {
+					"selector": "$(div.thumb > a.thumb_image > img).attr(src)" ,
+					"capture": ".*" ,
+					"replacement": "http://e-shuushuu.net$0"
+				} ,
+				"originUrl": {
+					"selector": "$(div.thumb > a.thumb_image).attr(href)" ,
+					"capture": ".*" ,
+					"replacement": "http://e-shuushuu.net$0"
+				} ,
+				"catalogUrl": {
+					"selector": "$(div.title > h2 > a).attr(href)" ,
+					"capture": ".*" ,
+					"replacement": "http://e-shuushuu.net$0"
+				}
+			}, 
+			"catalogSelectors": {
+				"title" : {
+					"selector": "$(input[name=comment[post_id]]).attr(value)" ,
+					"capture": "(.*)" ,
+					"replacement": "yande.re $1"
+				} ,
+				"tags": {
+					"selector": "$(img#image).attr(alt)"
+				} ,
+				"coverUrl": {
+					"selector": "$(img#image).attr(src)"
+				} ,
+				"sampleUrl": {
+					"selector": "$(img#image).attr(src)"
+				} ,
+				"largerUrl": {
+					"selector": "$(li > a#highres).attr(href)"
+				} ,
+				"originUrl": {
+					"selector": "$(li > a#png).attr(href)"
+				} ,
+				"datetime" : {
+					"selector": "$(script#forum-posts-latest).html" ,
+					"capture": "(\\d{4}-\\d{2}-\\d{2})T(\\d{2}:\\d{2}:\\d{2})" ,
+					"replacement": "$1 $2"
+				}
+			}
+	}
+}

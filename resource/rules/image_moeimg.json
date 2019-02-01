@@ -1,0 +1,39 @@
+{
+	"id": "6" ,
+	"version": "2" ,
+	"title": "IMG Moeimg" ,
+	"author": "TsukiSeele" ,
+	"type": "Image" ,
+	"rating": "Q" ,
+	"remarks": "ACG图册站，二次元工口画像" ,
+	"flag": "",
+	"homeSection": {
+		"indexUrl": "http://moeimg.net/page/{page:0}" ,
+		"gallerySelectors": {
+			"title" : {
+				"selector": "$(div.post > h2.title > a).attr(title)"
+			} ,
+			"catalogUrl": {
+				"selector": "$(div.post > h2.title > a).attr(href)"
+			} ,
+			"coverUrl": {
+				"selector": "$(img.thumbnail_image).attr(src)"
+			}
+		} ,
+		"catalogSelectors": {
+			"title" : {
+				"selector": "$(div.num).text"
+			} ,
+			"originUrl":  {
+				"selector": "$(div.box > a).attr(href)"
+			} ,
+			"coverUrl": {
+				"selector": "$(div.box > a).attr(href)"
+			}
+		}
+	} ,
+	"searchSection": {
+		"indexUrl": "http://moeimg.net/tag/{keyword:}/page/2" ,
+		"reuse": "homeSection"
+	}
+}

@@ -1,0 +1,83 @@
+{
+	"id": "4" ,
+	"version": "1" ,
+	"title": "IMG 3dbooru Behoimi Post" ,
+	"author": "TsukiSeele" ,
+	"type": "Image" ,
+	"rating": "Q" ,
+	"remarks": "Booru图站之一，三次元写真以及Cosplay" ,
+	"homeSection": {
+		"indexUrl": "http://behoimi.org/post?page={page:0}" ,
+
+		"gallerySelectors": {
+			"title" : {
+				"selector": "$(span.thumb > a).attr(id)" ,
+				"capture": "(?<=p).*" ,
+				"replacement": "Behoimi $0"
+			} ,
+			"catalogUrl": {
+				"selector": "$(span.thumb > a).attr(href)" ,
+				"capture": ".*" ,
+				"replacement": "http://behoimi.org$0"
+			} ,
+			"coverUrl": {
+				"selector": "$(span.thumb > a > img).attr(src)"
+			}
+		} ,
+		"catalogSelectors": {
+			"title" : {
+				"selector": "$(head > title).text"
+			} ,
+			"tags": {
+				"selector": "$(img#image).attr(alt)"
+			} ,
+			"sampleUrl": {
+				"selector": "$(img#image).attr(src)"
+			} ,
+			"originUrl": {
+				"selector": "$(div#stats ul li:eq(2) a).attr(href)"
+			} ,
+			"coverUrl": {
+				"selector": "$(img#image).attr(src)"
+			}
+		}
+	} ,
+	"searchSection": {
+		"indexUrl": "http://behoimi.org/post?tags={keyword:}&page={page:0}" ,
+
+		"$Rule" : {
+			"gallerySelectors": {
+				"title" : {
+					"selector": "$(span.thumb > a).attr(id)" ,
+					"capture": "(?<=p).*" ,
+					"replacement": "Behoimi $0"
+				} ,
+				"catalogUrl": {
+					"selector": "$(span.thumb > a).attr(href)" ,
+					"capture": ".*" ,
+					"replacement": "http://behoimi.org/$0"
+				} ,
+				"coverUrl": {
+					"selector": "$(span.thumb > a > img).attr(src)"
+				}
+			} ,
+			"catalogSelectors": {
+				"title" : {
+					"selector": "$(head > title).text"
+				} ,
+				"tags": {
+					"selector": "$(img#image).attr(alt)"
+				} ,
+				"sampleUrl": {
+					"selector": "$(img#image).attr(src)"
+				} ,
+				"originUrl": {
+					"selector": "$(div#stats ul li:eq(2) a).attr(href)"
+				} ,
+				"coverUrl": {
+					"selector": "$(img#image).attr(src)"
+				}
+			}
+		}
+	}
+}
